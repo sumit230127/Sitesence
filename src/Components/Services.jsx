@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import img1 from "../Images/img1.jpg";
 import img2 from "../Images/img2.jpeg";
 import img3 from "../Images/img3.jpeg";
@@ -20,17 +21,16 @@ import SEOANALYSIS from "../Images/SEOANALYSIS.jpeg";
 
 const Service = () => {
   const services = [
-    { title: "Android Development", imgSrc: img1 },
-    { title: "Web Development", imgSrc: img2 },
-    { title: "Database Management", imgSrc: img3 },
-    { title: "Business Analytics", imgSrc: img4 },
-    { title: "Digital Marketing", imgSrc: img5 },
-    { title: "Video Creation", imgSrc: img6 },
+    { title: "Android Development", imgSrc: img1, link: "/androiddevelopment" },
+    { title: "Web Development", imgSrc: img2, link: "/webdevelopment" },
+    { title: "Database Management", imgSrc: img3, link: "/databasemanagement" },
+    { title: "Business Analytics", imgSrc: img4, link: "/businessanalytics" },
+    { title: "Digital Marketing", imgSrc: img5, link: "/digitalmarketing" },
+    { title: "Video Creation", imgSrc: img6, link: "/videocreation" },
   ];
 
   return (
     <div className="w-full min-h-screen bg-gray-100 text-black ">
-      {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center py-10 px-4 md:px-16 mt-12">
         <div className="md:w-1/2 space-y-4 text-center md:text-left">
           <h2 className="text-3xl md:text-5xl font-bold">
@@ -50,22 +50,21 @@ const Service = () => {
         </div>
       </div>
 
-      {/* Services Section */}
       <h1 className="text-center text-3xl md:text-4xl font-bold mt-10 mb-10">Our Services</h1>
       <div className="px-4 md:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform">
-              <img src={service.imgSrc} alt={service.title} className="w-full h-40 md:h-60 object-cover" />
-              <div className="p-4 text-center">
-                <h2 className="text-lg md:text-xl font-bold">{service.title}</h2>
+            <Link to={service.link} key={index}>
+              <div className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform">
+                <img src={service.imgSrc} alt={service.title} className="w-full h-40 md:h-60 object-cover" />
+                <div className="p-4 text-center">
+                  <h2 className="text-lg md:text-xl font-bold">{service.title}</h2>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
-
-      {/* Why Choose Us Section */}
       <div className="flex flex-col md:flex-row items-center px-4 md:px-16 mt-20">
         <div className="md:w-1/2 p-6">
           <h2 className="text-3xl md:text-5xl font-bold">Why Choose Our Services?</h2>
@@ -174,7 +173,6 @@ const Service = () => {
         </div>
       </div>
 
-      {/* Footer Section */}
       <Footer />
     </div>
   );
