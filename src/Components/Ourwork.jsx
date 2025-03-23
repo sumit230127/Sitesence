@@ -37,7 +37,6 @@ export default function OurWork() {
     <div className="flex flex-col min-h-screen">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto mt-10 px-4 py-8 lg:flex gap-6 flex-grow">
-        
         {/* Filter Button for Mobile */}
         <button
           className="lg:hidden flex items-center gap-2 p-3 bg-gray-200 rounded-lg mb-4"
@@ -77,7 +76,7 @@ export default function OurWork() {
                 <div className="grid grid-cols-2 gap-4">
                   {project.stats.map((stat, idx) => (
                     <div key={idx} className="text-center p-2 border border-gray-300 rounded-lg">
-                      <h4 className="text-2xl font-bold text-gray-600 ">{stat.percentage}</h4>
+                      <h4 className="text-2xl font-bold text-gray-600">{stat.percentage}</h4>
                       <p className="text-gray-600 text-sm">{stat.description}</p>
                     </div>
                   ))}
@@ -88,8 +87,10 @@ export default function OurWork() {
         </div>
       </div>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer - Full width */}
+      <div className="w-full mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 }
